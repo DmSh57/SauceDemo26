@@ -21,9 +21,7 @@ public class LocatorTest {
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--disable-infobars");
-
         WebDriver driver = new ChromeDriver(options);
-
         driver.get("https://www.saucedemo.com/");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.findElement(By.xpath("//input[@id='user-name']"));
