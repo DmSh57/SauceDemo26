@@ -6,6 +6,7 @@ import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class CheckoutSecondTest extends BaseTest {
+
     @Test
     public void checkTotalPrice() {
         loginPage.open();
@@ -17,6 +18,7 @@ public class CheckoutSecondTest extends BaseTest {
         checkoutOnePageCart.clickContinue();
         assertTrue(checkoutSecondPageCart.getTotal().contains("Total"));
     }
+
     @Test
     public void finishCheckout() {
         loginPage.open();

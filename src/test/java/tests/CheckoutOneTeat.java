@@ -5,6 +5,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class CheckoutOneTeat extends BaseTest {
+
     @Test
     public void checkEmptyFormError() {
         loginPage.open();
@@ -15,6 +16,7 @@ public class CheckoutOneTeat extends BaseTest {
         checkoutOnePageCart.clickContinue();
         assertEquals(checkoutOnePageCart.getErrorMessage(), "Error: First Name is required");
     }
+
     @Test
     public void checkOnlyFirstName() {
         loginPage.open();
@@ -25,6 +27,7 @@ public class CheckoutOneTeat extends BaseTest {
         checkoutOnePageCart.clickContinue();
         assertEquals(checkoutOnePageCart.getErrorMessage(), "Error: Last Name is required");
     }
+
     @Test
     public void checkOnlyLastName() {
         loginPage.open();
@@ -35,6 +38,7 @@ public class CheckoutOneTeat extends BaseTest {
         checkoutOnePageCart.clickContinue();
         assertEquals(checkoutOnePageCart.getErrorMessage(), "Error: First Name is required");
     }
+
     @Test
     public void checkSuccessfulForm() {
         loginPage.open();

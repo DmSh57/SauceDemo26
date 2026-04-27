@@ -9,6 +9,7 @@ import pages.CheckoutOnePageCart;
 import static org.testng.Assert.*;
 
 public class CartTest extends BaseTest {
+
     @Test
     public void checkCartTitle() {
         loginPage.open();
@@ -16,6 +17,7 @@ public class CartTest extends BaseTest {
         productsPage.openCart();
         assertEquals(cartPage.getTitle(), "Your Cart");
     }
+
     @Test
     public void removeProduct() {
         loginPage.open();
@@ -26,6 +28,7 @@ public class CartTest extends BaseTest {
         productsPage.open();
         assertFalse(productsPage.isCartBadgeDisplayed(), "Cart badge should not be visible when cart is empty");
     }
+
     @Test
     public void goToCheckout() {
         loginPage.open();

@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class CheckoutFinalTest extends BaseTest {
+
     @Test
     public void checkCompleteMessage() {
         loginPage.open();
