@@ -7,7 +7,9 @@ import static org.testng.Assert.assertTrue;
 
 public class CheckoutSecondTest extends BaseTest {
 
-    @Test
+    @Test (
+            description = "Проверка цены товара",
+            testName = "Проверка цены товара")
     public void checkTotalPrice() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -19,7 +21,9 @@ public class CheckoutSecondTest extends BaseTest {
         assertTrue(checkoutSecondPageCart.getTotal().contains("Total"));
     }
 
-    @Test
+    @Test (
+            description = "Проверка оформления товара с валидными данными",
+            testName = "Проверка оформления товара с валидными данными")
     public void finishCheckout() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");

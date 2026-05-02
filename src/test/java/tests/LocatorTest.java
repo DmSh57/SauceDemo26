@@ -6,9 +6,13 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
+import static org.testng.Assert.assertEquals;
+
 public class LocatorTest extends BaseTest {
 
-    @Test
+    @Test (
+            description = "Проверка наличия локаторов",
+            testName = "Проверка наличия локаторов")
     public void checkLocator() {
         driver.get("https://www.saucedemo.com/");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -39,5 +43,14 @@ public class LocatorTest extends BaseTest {
         driver.findElement(By.cssSelector("[id^='add-to-cart']"));
         driver.findElement(By.cssSelector("[id$='backpack']"));
         driver.findElement(By.cssSelector("[class*='inventory']"));
+    }
+    @Test(
+            description = "Проверка входа в систему с пустым полем пароля",
+            testName = "Проверка входа в систему с пустым полем пароля",
+            groups = {"regression"})
+    public void checkEmptyPassword() {
+        loginPage.open();
+        loginPage.login("standard_user", "");
+        assertEquals(loginPage.gerErrorMessage(), "Epic sadface: Password is required");
     }
 }

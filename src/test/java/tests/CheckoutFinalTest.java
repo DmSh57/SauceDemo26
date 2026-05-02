@@ -5,7 +5,9 @@ import static org.testng.Assert.assertEquals;
 
 public class CheckoutFinalTest extends BaseTest {
 
-    @Test
+    @Test (
+            description = "Финальное оформление товара",
+            testName = "Финальное оформление товара")
     public void checkCompleteMessage() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
