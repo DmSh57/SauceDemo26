@@ -1,16 +1,14 @@
 package tests;
 
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.CartPage;
-import pages.CheckoutOnePageCart;
 
 import static org.testng.Assert.*;
 
 public class CartTest extends BaseTest {
 
-    @Test
+    @Test (
+            description = "Открытие карточки товара",
+            testName = "Открытие карточки товара")
     public void checkCartTitle() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -18,7 +16,9 @@ public class CartTest extends BaseTest {
         assertEquals(cartPage.getTitle(), "Your Cart");
     }
 
-    @Test
+    @Test (
+            description = "Удаление товара из корзины",
+            testName = "Удаление товара из корзины")
     public void removeProduct() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -29,7 +29,9 @@ public class CartTest extends BaseTest {
         assertFalse(productsPage.isCartBadgeDisplayed(), "Cart badge should not be visible when cart is empty");
     }
 
-    @Test
+    @Test (
+            description = "Добавление товара в корзину",
+            testName = "Добавление товара в корзину")
     public void goToCheckout() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -37,5 +39,15 @@ public class CartTest extends BaseTest {
         productsPage.openCart();
         cartPage.clickCheckout();
         assertTrue(checkoutOnePageCart.getCurrentUrl().contains("checkout-step-one"));
+    }
+
+    @Test (
+            description = "Проверка входа в систему с пустым полем юзер",
+            testName = "Проверка входа в систему с пустым полем юзер",
+            groups = {"regression"})
+    public void checkEmptyLogin() {
+        loginPage.open();
+        loginPage.login("", "secret_sauce");
+        assertEquals(loginPage.gerErrorMessage(), "Epic sadface: Username is required");
     }
 }
